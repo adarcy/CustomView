@@ -122,9 +122,12 @@ public class SaleProgressView extends View {
         srcPaint.setXfermode(null);
     }
 
-    public void setTotalAndCurrent(int i, int progress) {
-        totalCount = i;
-        currentCount = progress;
+    public void setTotalAndCurrent(int totalCount, int currentCount) {
+        this.totalCount = totalCount;
+        if (currentCount > totalCount){
+            currentCount = totalCount;
+        }
+        this.currentCount = currentCount;
         postInvalidate();
     }
 }
