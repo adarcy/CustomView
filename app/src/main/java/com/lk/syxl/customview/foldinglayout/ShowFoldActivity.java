@@ -9,9 +9,13 @@ import android.widget.ListView;
 
 public class ShowFoldActivity extends ListActivity {
 
-    private String[] mTitles = { "Matrix_setPolyToPoly",
-            "MatrixPolyToPolyWithShadowActivity", "SimpleUseActivity",
-            "FoldLayoutActivity", "DrawerLayoutSampleActivity" ,"SlidingPanelLayoutSampleActivity"};
+    private String[] mTitles = {
+            "Matrix_setPolyToPoly",
+            "MatrixPolyToPolyWithShadowActivity",
+            "SimpleUseActivity",
+            "FoldLayoutActivity",
+            "DrawerLayoutSampleActivity" ,
+            "SlidingPanelLayoutSampleActivity"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

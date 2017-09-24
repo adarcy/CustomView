@@ -43,8 +43,7 @@ public class MatrixPolyToPolyActivity extends Activity {
         public PolyToPolyView(Context context)
         {
             super(context);
-            mBitmap = BitmapFactory.decodeResource(getResources(),
-                    R.drawable.tanyan);
+            mBitmap = BitmapFactory.decodeResource(getResources(),R.drawable.tanyan);
             mMatrix = new Matrix();
 
             mShadowPaint = new Paint();
