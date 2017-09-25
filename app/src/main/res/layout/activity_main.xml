@@ -16,7 +16,9 @@
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         app:slideColor="#345"
-        app:slideWidth="2dp"/>
+        app:slideWidth="2dp"
+        app:nearOverText="@string/nearOverText"
+        app:overText="@string/overText"/>
 
     <SeekBar
         android:id="@+id/seekbar"
