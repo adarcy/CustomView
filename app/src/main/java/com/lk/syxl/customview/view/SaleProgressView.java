@@ -27,6 +27,7 @@ public class SaleProgressView extends View {
 
     private int totalCount;
     private int currentCount;
+    private int progressCount;
     private float scale;
     private int width;
     private int height;
@@ -37,7 +38,6 @@ public class SaleProgressView extends View {
     private int slideColor;
     private int textColor;
     private Bitmap bgBitmap;
-    private Bitmap fgBitmap;
     private Bitmap srcBitmap;
     private Bitmap srcBitmapFg;
     private Paint srcPaint;
@@ -111,6 +111,10 @@ public class SaleProgressView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if(!isNeedAnim){
+            progressCount = currentCount;
+        }
+
 
         if (totalCount == 0){
             scale = 0.0f;
@@ -124,9 +128,24 @@ public class SaleProgressView extends View {
         drawBG(canvas);
         //fg
         drawFG(canvas);
+        drawText(canvas);
 
-//        String scaleText = new DecimalFormat("0").format(scale*100) + "%";
-        String scaleText = new DecimalFormat("#%").format(scale) + "%";//格式化  否则会有59。9999999
+
+        //这里是为了演示动画方便，实际开发中进度只会增加
+        if(progressCount!=currentCount){
+            if(progressCount<currentCount){
+                progressCount++;
+            }else{
+                progressCount--;
+            }
+            postInvalidate();
+        }
+
+    }
+
+    private void drawText(Canvas canvas) {
+        //        String scaleText = new DecimalFormat("0").format(scale*100) + "%";
+        String scaleText = new DecimalFormat("#%").format(scale) ;//格式化  否则会有59。9999999
         String saleText = String.format("以抢购%s件",currentCount);
 
         float scaleTextWidth = textPaint.measureText(scaleText);
@@ -154,9 +173,8 @@ public class SaleProgressView extends View {
     }
 
     private void drawFG(Canvas canvas) {
-        if (fgBitmap == null) {
-            fgBitmap = Bitmap.createBitmap(width,height, Bitmap.Config.ARGB_8888);
-        }
+        //fgBitmap每次都要新建
+        Bitmap fgBitmap = Bitmap.createBitmap(width,height, Bitmap.Config.ARGB_8888);
         Canvas fgCav = new Canvas(fgBitmap);
         if (srcBitmapFg == null) {
             srcBitmapFg = BitmapFactory.decodeResource(getResources(), R.mipmap.fg);
