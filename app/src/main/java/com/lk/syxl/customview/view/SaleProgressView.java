@@ -10,12 +10,13 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
-import android.icu.text.DecimalFormat;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
 import com.lk.syxl.customview.R;
+
+import java.text.DecimalFormat;
 
 /**
  * Created by likun on 2017/9/24.
@@ -124,9 +125,8 @@ public class SaleProgressView extends View {
         //fg
         drawFG(canvas);
 
-//        String scaleText = new DecimalFormat("#%").format(scale);
-//        String scaleText = String.format("%s----",scale);
-        String scaleText = scale*100 + "%";
+//        String scaleText = new DecimalFormat("0").format(scale*100) + "%";
+        String scaleText = new DecimalFormat("#%").format(scale) + "%";//格式化  否则会有59。9999999
         String saleText = String.format("以抢购%s件",currentCount);
 
         float scaleTextWidth = textPaint.measureText(scaleText);
