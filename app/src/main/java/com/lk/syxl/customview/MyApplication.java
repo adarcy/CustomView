@@ -3,6 +3,7 @@ package com.lk.syxl.customview;
 import android.app.Application;
 import android.support.v7.app.AppCompatDelegate;
 
+import com.lk.syxl.customview.utils.SPUtils;
 import com.lk.syxl.customview.utils.Utils;
 
 /**
@@ -22,6 +23,7 @@ public class MyApplication extends Application {
 
     private void setNightMode() {
 //        boolean nightMode = UserInfoTools.isNightMode(this);
+        nightMode = SPUtils.getInstance().getBoolean("nightMode",false);
         AppCompatDelegate.setDefaultNightMode(nightMode ?
                 AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
     }

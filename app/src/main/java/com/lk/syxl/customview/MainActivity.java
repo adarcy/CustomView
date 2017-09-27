@@ -1,19 +1,18 @@
 package com.lk.syxl.customview;
 
-import android.app.Service;
-import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
-import android.widget.Toast;
 
 import com.lk.syxl.customview.entity.PieData;
 import com.lk.syxl.customview.utils.DeviceUtils;
-import com.lk.syxl.customview.view.PieView;
+import com.lk.syxl.customview.utils.SPUtils;
 import com.lk.syxl.customview.view.SaleProgressView;
 
 import java.util.ArrayList;
@@ -35,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekbar);
         Button start = (Button) findViewById(R.id.bt_start);
         Button stop = (Button) findViewById(R.id.bt_stop);
+        Button bt_day_night = (Button) findViewById(R.id.bt_day_night);
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             start.setOnClickListener(this);
             stop.setOnClickListener(this);
+        bt_day_night.setOnClickListener(this);
 //        boolean isBg = DeviceUtils.isApplicationBroughtToBackground(this);
 //        if (isBg){
 //            Toast.makeText(this,"application is background",Toast.LENGTH_SHORT).show();
@@ -106,6 +107,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_stop:
                 break;
+            case R.id.bt_day_night:
+                //  获取当前模式
+                int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+                //  将是否为夜间模式保存到SharedPreferences
+                SPUtils.getInstance().put("nightMode",currentNightMode == Configuration.UI_MODE_NIGHT_NO);
+                //  切换模式
+                getDelegate().setDefaultNightMode(currentNightMode == Configuration.UI_MODE_NIGHT_NO ?
+                        AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+                //  重启Activity
+                recreate();
+                break;
         }
     }
+
 }
