@@ -44,4 +44,10 @@
         android:layout_height="wrap_content"
         android:text="夜间模式"/>
 
+    <Button
+        android:id="@+id/bt_BouncingBallView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BouncingBallView"/>
+
 </LinearLayout>
