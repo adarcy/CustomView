@@ -1,5 +1,6 @@
 package com.lk.syxl.customview;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -115,8 +116,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //  切换模式
                 getDelegate().setDefaultNightMode(currentNightMode == Configuration.UI_MODE_NIGHT_NO ?
                         AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
-                //  重启Activity
-                recreate();
+                //  重启Activity recreate()有很多坑使用的时候注意，
+//                recreate();
+                //解决闪屏问题，从新启动当前界面 设置渐进渐出动画
+                startActivity(new Intent(this,MainActivity.class));
+                overridePendingTransition(R.anim.animo_alph_open, R.anim.animo_alph_close);
+                finish();
                 break;
         }
     }
