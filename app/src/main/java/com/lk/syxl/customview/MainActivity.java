@@ -8,10 +8,12 @@ import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
 import com.lk.syxl.customview.entity.PieData;
+import com.lk.syxl.customview.ui.BouncingBallViewActivity;
 import com.lk.syxl.customview.utils.DeviceUtils;
 import com.lk.syxl.customview.utils.SPUtils;
 import com.lk.syxl.customview.view.SaleProgressView;
@@ -20,8 +22,26 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+    @BindView(R.id.saleProgressView)
+    SaleProgressView saleProgressView;
+    @BindView(R.id.seekbar)
+    SeekBar seekbar;
+    @BindView(R.id.bt_start)
+    Button btStart;
+    @BindView(R.id.bt_stop)
+    Button btStop;
+    @BindView(R.id.bt_day_night)
+    Button btDayNight;
+    @BindView(R.id.bt_BouncingBallView)
+    Button btBouncingBallView;
+    @BindView(R.id.activity_main)
+    LinearLayout activityMain;
 
     private ArrayList<PieData> mData = new ArrayList<>();
     private RelativeLayout mMain;
@@ -30,17 +50,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         final SaleProgressView saleProgressView = (SaleProgressView) findViewById(R.id.saleProgressView);
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekbar);
-        Button start = (Button) findViewById(R.id.bt_start);
-        Button stop = (Button) findViewById(R.id.bt_stop);
-        Button bt_day_night = (Button) findViewById(R.id.bt_day_night);
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                saleProgressView.setTotalAndCurrent(100,progress);
+                saleProgressView.setTotalAndCurrent(100, progress);
             }
 
             @Override
@@ -54,9 +72,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-            start.setOnClickListener(this);
-            stop.setOnClickListener(this);
-        bt_day_night.setOnClickListener(this);
 //        boolean isBg = DeviceUtils.isApplicationBroughtToBackground(this);
 //        if (isBg){
 //            Toast.makeText(this,"application is background",Toast.LENGTH_SHORT).show();
@@ -91,19 +106,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void run() {
                 boolean isBg = DeviceUtils.isApplicationBroughtToBackground(MainActivity.this);
-                if (isBg){
-                    Log.e(TAG,"application is background");
-                }else {
-                    Log.e(TAG,"application is not background");
+                if (isBg) {
+                    Log.e(TAG, "application is background");
+                } else {
+                    Log.e(TAG, "application is not background");
                 }
             }
         };
-        timer.schedule(timerTask,5000,5000);
+        timer.schedule(timerTask, 5000, 5000);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
+    @OnClick({R.id.bt_start, R.id.bt_stop, R.id.bt_day_night, R.id.bt_BouncingBallView})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
             case R.id.bt_start:
                 break;
             case R.id.bt_stop:
@@ -112,18 +127,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //  获取当前模式
                 int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
                 //  将是否为夜间模式保存到SharedPreferences
-                SPUtils.getInstance().put("nightMode",currentNightMode == Configuration.UI_MODE_NIGHT_NO);
+                SPUtils.getInstance().put("nightMode", currentNightMode == Configuration.UI_MODE_NIGHT_NO);
                 //  切换模式
                 getDelegate().setDefaultNightMode(currentNightMode == Configuration.UI_MODE_NIGHT_NO ?
                         AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
                 //  重启Activity recreate()有很多坑使用的时候注意，
 //                recreate();
                 //解决闪屏问题，从新启动当前界面 设置渐进渐出动画
-                startActivity(new Intent(this,MainActivity.class));
+                startActivity(new Intent(this, MainActivity.class));
                 overridePendingTransition(R.anim.animo_alph_open, R.anim.animo_alph_close);
                 finish();
                 break;
+            case R.id.bt_BouncingBallView:
+                Intent intent = new Intent(this, BouncingBallViewActivity.class);
+                startActivity(intent);
+                break;
         }
     }
-
 }
