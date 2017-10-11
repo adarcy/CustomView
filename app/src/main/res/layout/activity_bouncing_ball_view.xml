@@ -16,4 +16,12 @@
         app:ballCount="6"
         app:cycleTime="1000" />
 
+    <Button
+        android:id="@+id/bt_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:text="start animation"/>
+
 </LinearLayout>
