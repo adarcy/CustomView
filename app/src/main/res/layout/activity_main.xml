@@ -50,4 +50,10 @@
         android:layout_height="wrap_content"
         android:text="BouncingBallView"/>
 
+    <Button
+        android:id="@+id/bt_number_belong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="号码归属地查询"/>
+
 </LinearLayout>

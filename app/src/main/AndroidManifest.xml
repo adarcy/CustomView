@@ -3,6 +3,7 @@
           package="com.lk.syxl.customview">
 
     <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".MyApplication"
@@ -35,6 +36,7 @@
         <activity android:name=".foldinglayout.DrawerLayoutSampleActivity"/>
         <activity android:name=".foldinglayout.SlidingPanelLayoutSampleActivity"/>
         <activity android:name=".ui.BouncingBallViewActivity"/>
+        <activity android:name=".ui.NumberBelongActivity"/>
     </application>
 
 </manifest>

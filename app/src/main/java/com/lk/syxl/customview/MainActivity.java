@@ -14,6 +14,7 @@ import android.widget.SeekBar;
 
 import com.lk.syxl.customview.entity.PieData;
 import com.lk.syxl.customview.ui.BouncingBallViewActivity;
+import com.lk.syxl.customview.ui.NumberBelongActivity;
 import com.lk.syxl.customview.utils.DeviceUtils;
 import com.lk.syxl.customview.utils.SPUtils;
 import com.lk.syxl.customview.view.SaleProgressView;
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     Button btBouncingBallView;
     @BindView(R.id.activity_main)
     LinearLayout activityMain;
+    @BindView(R.id.bt_number_belong)
+    Button btNumberBelong;
 
     private ArrayList<PieData> mData = new ArrayList<>();
     private RelativeLayout mMain;
@@ -143,5 +146,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
         }
+    }
+
+    @OnClick(R.id.bt_number_belong)
+    public void onViewClicked1() {
+        Intent intent = new Intent(this, NumberBelongActivity.class);
+        startActivity(intent);
     }
 }
