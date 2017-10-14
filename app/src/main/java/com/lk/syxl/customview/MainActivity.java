@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
 import com.lk.syxl.customview.entity.PieData;
+import com.lk.syxl.customview.foldinglayout.ShowFoldActivity;
 import com.lk.syxl.customview.ui.BouncingBallViewActivity;
 import com.lk.syxl.customview.ui.NumberBelongActivity;
 import com.lk.syxl.customview.utils.DeviceUtils;
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout activityMain;
     @BindView(R.id.bt_number_belong)
     Button btNumberBelong;
+    @BindView(R.id.bt_show_fild)
+    Button btShowFild;
 
     private ArrayList<PieData> mData = new ArrayList<>();
     private RelativeLayout mMain;
@@ -151,6 +154,12 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bt_number_belong)
     public void onViewClicked1() {
         Intent intent = new Intent(this, NumberBelongActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.bt_show_fild)
+    public void onViewClicked2() {
+        Intent intent = new Intent(this, ShowFoldActivity.class);
         startActivity(intent);
     }
 }

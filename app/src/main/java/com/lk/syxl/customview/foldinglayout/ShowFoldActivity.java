@@ -22,7 +22,7 @@ public class ShowFoldActivity extends ListActivity {
     {
         super.onCreate(savedInstanceState);
         getListView().setAdapter(
-                new ArrayAdapter<String>(this,
+                new ArrayAdapter<>(this,
                         android.R.layout.simple_list_item_1, mTitles));
     }
 

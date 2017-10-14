@@ -56,4 +56,10 @@
         android:layout_height="wrap_content"
         android:text="号码归属地查询"/>
 
+    <Button
+        android:id="@+id/bt_show_fild"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SHowFoldActivity"/>
+
 </LinearLayout>

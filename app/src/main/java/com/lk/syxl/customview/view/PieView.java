@@ -32,6 +32,7 @@ public class PieView extends View {
     private int mHeight;
     // 画笔
     private Paint mPaint = new Paint();
+    private RectF rectF;
 
     public PieView(Context context) {
         this(context,null);
@@ -48,6 +49,8 @@ public class PieView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         mWidth = w;
         mHeight = h;
+        float r = (float) (Math.min(mWidth,mHeight)/2*0.8);
+        rectF = new RectF(-r,-r,r,r);
     }
 
     @Override
@@ -59,8 +62,6 @@ public class PieView extends View {
 
         float currentStartAngle = mStartAngle;
         canvas.translate(mWidth/2,mHeight/2);
-        float r = (float) (Math.min(mWidth,mHeight)/2*0.8);
-        RectF rectF = new RectF(-r,-r,r,r);
         for (int i = 0; i < mData.size(); i++) {
             PieData pieData = mData.get(i);
             float angle = pieData.getAngle();

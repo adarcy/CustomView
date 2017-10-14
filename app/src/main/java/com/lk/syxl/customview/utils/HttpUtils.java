@@ -69,7 +69,7 @@ public class HttpUtils {
                 mHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        if (request != null) {
+                        if (response != null) {
                             if (response.isSuccessful()){
                                 try {
                                     httpResponse.onSuccess(response.body().string());
@@ -81,7 +81,7 @@ public class HttpUtils {
                                 httpResponse.onError("请求失败"+response);
                             }
                         }else {
-                            return;
+
                         }
                     }
                 });
@@ -95,9 +95,12 @@ public class HttpUtils {
         if (isPost){
             MultipartBody.Builder builder = new MultipartBody.Builder();
             builder.setType(MultipartBody.FORM);
-            Iterator<Map.Entry<String,String>> iterator = prarams.entrySet().iterator();
-            while (iterator.hasNext()){
-                Map.Entry<String,String> entry = iterator.next();
+//            Iterator<Map.Entry<String,String>> iterator = prarams.entrySet().iterator();
+//            while (iterator.hasNext()){
+//                Map.Entry<String,String> entry = iterator.next();
+//                builder.addFormDataPart(entry.getKey(),entry.getValue());
+//            }
+            for(Map.Entry<String,String> entry :prarams.entrySet()){
                 builder.addFormDataPart(entry.getKey(),entry.getValue());
             }
             request = new Request.Builder()

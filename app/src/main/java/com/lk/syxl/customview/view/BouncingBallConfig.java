@@ -4,6 +4,7 @@ import android.graphics.Color;
 
 /**
  * Created by likun on 2017/9/29.
+ * 配置基本参数
  */
 
 public class BouncingBallConfig {

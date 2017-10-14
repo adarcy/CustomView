@@ -101,9 +101,8 @@ public class SimpleUseActivity extends AppCompatActivity {
             float[] src = new float[NUM_OF_POINT];
             float[] dst = new float[NUM_OF_POINT];
 
-            /**
-             * 原图的每一块，对应折叠后的每一块，方向为左上、右上、右下、左下，大家在纸上自己画下
-             */
+
+            //原图的每一块，对应折叠后的每一块，方向为左上、右上、右下、左下，大家在纸上自己画下
             for (int i = 0; i < mNumOfFolds; i++)
             {
                 src[0] = i * mFlodWidth;

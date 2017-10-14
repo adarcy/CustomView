@@ -37,7 +37,7 @@ public class NumberBelongPresenter extends BasePresenter {
     }
 
     private void check(String phone) {
-        Map<String ,String> praram = new HashMap<String, String>();
+        Map<String ,String> praram = new HashMap<>();
         praram.put("tel",phone);
 
         HttpUtils utils = new HttpUtils(new HttpUtils.HttpResponse() {
@@ -63,12 +63,10 @@ public class NumberBelongPresenter extends BasePresenter {
 
     private Phone parseModelFromGson(String json){
         Gson gson = new Gson();
-        Phone phone = gson.fromJson(json, Phone.class);
-        return phone;
+        return gson.fromJson(json, Phone.class);
     }
 
     private Phone parseModelFromFastjson(String json){
-        Phone phone = JSONObject.parseObject(json,Phone.class);
-        return phone;
+        return JSONObject.parseObject(json,Phone.class);
     }
 }
