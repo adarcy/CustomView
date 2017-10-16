@@ -1,5 +1,6 @@
 package com.lk.syxl.customview;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.SeekBar;
 import com.lk.syxl.customview.entity.PieData;
 import com.lk.syxl.customview.foldinglayout.ShowFoldActivity;
 import com.lk.syxl.customview.ui.BouncingBallViewActivity;
+import com.lk.syxl.customview.ui.HttpActivity;
 import com.lk.syxl.customview.ui.NumberBelongActivity;
 import com.lk.syxl.customview.utils.DeviceUtils;
 import com.lk.syxl.customview.utils.SPUtils;
@@ -48,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     Button btNumberBelong;
     @BindView(R.id.bt_show_fild)
     Button btShowFild;
+    @BindView(R.id.bt_http)
+    Button btHttp;
 
     private ArrayList<PieData> mData = new ArrayList<>();
     private RelativeLayout mMain;
@@ -160,6 +164,12 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bt_show_fild)
     public void onViewClicked2() {
         Intent intent = new Intent(this, ShowFoldActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.bt_http)
+    public void onViewClicked3() {
+        Intent intent = new Intent(this, HttpActivity.class);
         startActivity(intent);
     }
 }

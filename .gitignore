@@ -7,9 +7,8 @@ local.properties
 
 # Intellij
 *.iml
-.idea/workspace.xml
 
 # Keystore files
 *.jks
-/.idea/
 
+/.idea
