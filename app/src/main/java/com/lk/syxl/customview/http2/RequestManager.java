@@ -7,7 +7,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-import com.lk.syxl.customview.http.utils.Utils;
+import com.lk.syxl.customview.utils.Utils;
 
 import java.io.UnsupportedEncodingException;
 
@@ -19,7 +19,7 @@ import java.io.UnsupportedEncodingException;
  */
 public class RequestManager {
 	
-    public static RequestQueue mRequestQueue = Volley.newRequestQueue(Utils.getContext());
+    public static RequestQueue mRequestQueue = Volley.newRequestQueue(Utils.getApp());
 
     private RequestManager() {
         // no instances

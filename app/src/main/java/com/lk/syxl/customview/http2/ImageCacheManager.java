@@ -9,7 +9,7 @@ import android.widget.ImageView;
 
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
-import com.lk.syxl.customview.http.utils.Utils;
+import com.lk.syxl.customview.utils.Utils;
 
 
 /**
@@ -20,7 +20,7 @@ import com.lk.syxl.customview.http.utils.Utils;
 public class ImageCacheManager {
 
     // 取运行内存阈值的1/8作为图片缓存
-    private static final int MEM_CACHE_SIZE = 1024 * 1024 * ((ActivityManager) Utils.getContext().getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass() / 8;
+    private static final int MEM_CACHE_SIZE = 1024 * 1024 * ((ActivityManager) Utils.getApp().getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass() / 8;
     
     private static BitmapLruCache mBitmapLruCache = new BitmapLruCache(MEM_CACHE_SIZE);
 
@@ -54,7 +54,7 @@ public class ImageCacheManager {
                         TransitionDrawable transitionDrawable = new TransitionDrawable(
                                 new Drawable[]{
                                         defaultImageDrawable,
-                                        new BitmapDrawable(Utils.getContext().getResources(),
+                                        new BitmapDrawable(Utils.getApp().getResources(),
                                                 response.getBitmap())
                                 }
                         );
