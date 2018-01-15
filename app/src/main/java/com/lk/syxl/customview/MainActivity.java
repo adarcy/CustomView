@@ -1,6 +1,5 @@
 package com.lk.syxl.customview;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -170,6 +169,13 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bt_http)
     public void onViewClicked3() {
         Intent intent = new Intent(this, HttpActivity.class);
+        startActivity(intent);
+    }
+
+
+    @OnClick(R.id.bt_palette)
+    public void onViewClicked4() {
+        Intent intent = new Intent(this, PaletteActivity.class);
         startActivity(intent);
     }
 }

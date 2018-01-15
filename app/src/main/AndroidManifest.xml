@@ -3,7 +3,12 @@
           package="com.lk.syxl.customview">
 
     <uses-permission android:name="android.permission.GET_TASKS" />
+    <!--网络权限-->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--外部存储读权限，调试工具加载本地补丁需要-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MyApplication"
@@ -19,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".PaletteActivity"/>
         <activity android:name=".foldinglayout.MatrixPolyToPolyActivity">
         </activity>
         <activity android:name=".foldinglayout.SimpleUseActivity">
@@ -33,6 +39,16 @@
         <activity android:name=".ui.BouncingBallViewActivity"/>
         <activity android:name=".ui.NumberBelongActivity"/>
         <activity android:name=".ui.HttpActivity"/>
+
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="24767559-1" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="f52f8aab07231a3b41478e0a5ea54a68" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC7tpJDnWsLYY+6tavbGIJMcDiqKtGd5tMBWIcJ3rk1QLpMSmb94jeydWOOTrnH7p1KTmTXBMs19gGWOGqUKzrItkYHQMpv7g8/oqCGPtsUKRn3mdWPKtQAb9OIIHJFu+xmAr7901NBnyXLkTNzuyYIeUuUHCKF//q+N29iOVXFzzUdfsdO7qZagX9n2J+c4ZmzlnUGHW1F1UljwA/er8pvCBO592nmbzJept7jBtPZVlqwh6srVRPnLJHzAf/zHKBWRKe4KquRfe3IHYlMJxHbWZHh0B0KG+Q10oYdQFpQe1gGroJdhC7WesdfmnpP8x83xF7OGAVWRxzFYU99hwo1AgMBAAECggEAR01cVa6wAIy4idWESB8RL3PZMlo9cVtCf1pfQRKHC4FgwqXoZTvOqE0K2f1xeE5dFOKeT0aU4hRmGeeoJEwfcio6g3rK6qVkyWk+zH+HvCq4oGKgylccXGYd1bFtdquhakZUwhnJoD2Rn7ex8Z3/HmzklofxXTEUz7hC6O6adB5QTlAI4bSOcymHVukfYxOOf0w/OdQBlnlZE8jNgv26FDgKHMlag29l/HUn/g/42cjEG6djgOIukXrXBb4YVuJQu+MuC5rtLAai6LP4vCcfEHvwVdMJ2O3movP5uz9J8H7dpa7dKNulvGPBB9uKd+KYhdU44RJXSsx/zIBqJUWhwQKBgQDp06FCs8Es2bAlAsJ/TGcA02MhFQZE6ygse31CwO6oDS54OkIVtGMdtX3SmPmsF6b1NxxZFmbvZ77f/ulv3j1VSY3/kheIlVoQ+hdXrmmxl5Aqc+VSotcUYHuiZtm4Zu1B+3JZ6JGE03qDrKgZQHTwUeR4Md3p5vZPjLYS1mFoHQKBgQDNg325Z6RZ+f/+jsq+jnAsih586S4TVF9/NPUQfxtaBF7w8nVPdPlJyZAAt8xhOU7Vn3lGG91YRNavgADOjfxbyg5bKFkEGo+av+0130854/Qs5cTJK3D+orJYRlxgt2yptfVGWAWpf0X5AL8klAmf6Qtp6ITNsxt2+Qgh4Kz++QKBgF6OLBoTIr0GUsrEsO5VcRnOYbnRDLX1+kryrRa/ekMPAYmw1WR9i89Jw1XUcrJ65hMndBk6i+moJHHkXXXVgyvoELoW09lxu/g9ig71AtzEE5J3R3cBTsR4t8ZWnRiK1srl6bod6Cq0ckipG1kKzb8Y/rD0SW767QQCPOalNsKpAoGAFAzyJTahaE3l1fYkfbbz5sSK+PDfF++xaX3HMxbTmlK22JcvLtNgxvwtWoSUIiAvOtRWRqrNS6FbuL+qVHyx1FrAT9B97tKQlC6JfCoPVryQxBievGnKmm1RLR+gP6dlqKEiDvzjgIf0Ubjq7SysS7e271xKKK+CzHa7fmKnPjECgYBp/4N/ZrCDBybmH/7cbnmPtT/cu+r0qCmAC1so2nuxJLcdebpWHFZJY79DWYIGFKNVK/RVGHr3etUPCEg/g1y4sCp+mNuhWr3TN2Sy/k70kRbKXQ2ePaayUGASUIUBrStWgsxWAtjMtNBDSWDyeQghfJNiNu7zgGr5JVyeQQmceg==" />
     </application>
 
 </manifest>

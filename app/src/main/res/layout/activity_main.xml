@@ -9,22 +9,28 @@
     tools:context="com.lk.syxl.customview.MainActivity">
 
 
-
-    <com.lk.syxl.customview.view.SaleProgressView
-        android:id="@+id/saleProgressView"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        app:slideColor="#345"
-        app:slideWidth="2dp"
-        app:nearOverText="@string/nearOverText"
-        app:overText="@string/overText"/>
-
-    <SeekBar
-        android:id="@+id/seekbar"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"/>
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <com.lk.syxl.customview.view.SaleProgressView
+            android:id="@+id/saleProgressView"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            app:slideColor="#345"
+            app:slideWidth="2dp"
+            app:nearOverText="@string/nearOverText"
+            app:overText="@string/overText"/>
+
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/bt_start"
@@ -67,5 +73,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="HttpActivity"/>
+    <Button
+        android:id="@+id/bt_palette"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PaletteActivity"/>
 
 </LinearLayout>
