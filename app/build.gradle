@@ -1,5 +1,10 @@
 apply plugin: 'com.android.application'
 
+def KEY_FILE = './likun.jks'
+def KEY_ALIAS = 'syxl'
+def KEY_STORE_PASS = '123456'
+def KEY_KEY_PASS = '123456'
+
 android {
     compileSdkVersion 24
     buildToolsVersion '26.0.2'
@@ -11,8 +16,17 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        release {
+            storeFile file(KEY_FILE);
+            storePassword KEY_STORE_PASS
+            keyAlias KEY_ALIAS
+            keyPassword KEY_KEY_PASS
+        }
+    }
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

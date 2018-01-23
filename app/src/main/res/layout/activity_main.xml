@@ -78,5 +78,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PaletteActivity"/>
+    <Button
+        android:id="@+id/bt_sophix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sophix"/>
+    <Button
+        android:id="@+id/bt_sophix1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sophix"/>
+
 
 </LinearLayout>

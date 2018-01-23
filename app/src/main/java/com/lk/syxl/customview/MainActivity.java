@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     Button btShowFild;
     @BindView(R.id.bt_http)
     Button btHttp;
+    @BindView(R.id.bt_sophix)
+    Button btSophix;
 
     private ArrayList<PieData> mData = new ArrayList<>();
     private RelativeLayout mMain;
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        checkIsBackground();
 
-
+        btSophix.setText("1111111111");
     }
 
     /**
