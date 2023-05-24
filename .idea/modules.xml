@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CustomView.iml" filepath="$PROJECT_DIR$/CustomView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CustomView.iml" filepath="$PROJECT_DIR$/.idea/modules/CustomView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CustomView.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CustomView.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CustomView.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CustomView.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CustomView.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CustomView.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CustomView.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CustomView.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/volley/CustomView.volley.iml" filepath="$PROJECT_DIR$/.idea/modules/volley/CustomView.volley.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/volley/CustomView.volley.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/volley/CustomView.volley.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/volley/CustomView.volley.main.iml" filepath="$PROJECT_DIR$/.idea/modules/volley/CustomView.volley.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/volley/CustomView.volley.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/volley/CustomView.volley.unitTest.iml" />
     </modules>
   </component>
 </project>
