@@ -14,6 +14,9 @@ import android.widget.SeekBar;
 
 import com.lk.syxl.customview.entity.PieData;
 import com.lk.syxl.customview.foldinglayout.ShowFoldActivity;
+import com.lk.syxl.customview.proxy.Person;
+import com.lk.syxl.customview.proxy.PersonImpl;
+import com.lk.syxl.customview.proxy.ProxyTest;
 import com.lk.syxl.customview.ui.BouncingBallViewActivity;
 import com.lk.syxl.customview.ui.HttpActivity;
 import com.lk.syxl.customview.ui.NumberBelongActivity;
@@ -21,6 +24,9 @@ import com.lk.syxl.customview.utils.DeviceUtils;
 import com.lk.syxl.customview.utils.SPUtils;
 import com.lk.syxl.customview.view.SaleProgressView;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -106,6 +112,13 @@ public class MainActivity extends AppCompatActivity {
 //        checkIsBackground();
 
         btSophix.setText("1111111111");
+
+
+
+
+        ProxyTest test = new ProxyTest(new PersonImpl());
+        test.setName("aaa");
+        test.getName();
     }
 
     /**
